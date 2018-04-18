@@ -12,15 +12,28 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var additionSwitch: UISwitch!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBAction func buttonTapped(_ sender: Any)
     
-    @IBAction func buttonTapped(_ sender: Any) {
-        
-        view.backgroundColor = UIColor.red
-        
-        myLabel.text = "Hello World"
-        
+    {
+        let addition = additionSwitch.isOn
+    
+        if addition {
+            
+            let sum = Double(topTextField.text!)! + Double(bottomTextField.text!)!
+            
+            myLabel.text = "\(topTextField.text!) + \(bottomTextField.text!) = \(sum)"
+            
+        } else {
+            
+            let sum = Double(topTextField.text!)! - Double(bottomTextField.text!)!
+            
+            myLabel.text = "\(topTextField.text!) - \(bottomTextField.text!) = \(sum)"
+            
+        }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
